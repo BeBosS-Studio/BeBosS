@@ -4,160 +4,209 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BeBosS — 360° Branding, Creative Direction &amp; Marketing Studio</title>
-  <meta name="description" content="BeBosS is a 360° branding, creative direction, filming, and growth marketing studio in Cairo serving Egypt and the GCC. Be your own boss.">
+  <meta name="description" content="BeBosS is a 360° branding, creative direction, filming, and growth marketing studio in Cairo serving Egypt and the GCC. Claim your Boarding Pass and be your own boss.">
   <meta name="theme-color" content="#10153A">
   <link rel="icon" href="assets/brand/boss.webp" type="image/webp">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ==================== MINIMALIST STICKY HEADER ==================== -->
-  <header class="hdr" id="top">
-    <div class="wrap hdr-in">
-      <a class="brand-link" href="#top" aria-label="BeBosS Home">
-        <img src="assets/brand/wordmark-navy.png" alt="BeBosS">
-      </a>
+  <!-- ==================== STICKY HEADER + CAIRO ✈ GCC FLIGHT BAR ==================== -->
+  <div class="chrome">
+    <header class="hdr" id="top">
+      <div class="wrap hdr-in">
+        <a class="brand-link" href="#top" aria-label="BeBosS Home">
+          <img src="assets/brand/wordmark-navy.png" alt="BeBosS">
+        </a>
 
-      <nav class="nav-links" id="topNav" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#philosophy">Direction</a>
-        <a href="#plans">Plans</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <nav class="nav-links" id="topNav" aria-label="Primary navigation">
+          <a href="#gate-01">Flight Path</a>
+          <a href="#gate-02">Services</a>
+          <a href="#gate-03">Work</a>
+          <a href="#gate-04">Direction</a>
+          <a href="#gate-05">Plans</a>
+          <a href="#gate-06">Boarding Pass</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-      <div class="hdr-right">
-        <a class="btn cobalt sm" href="#sign">Sign with Us →</a>
+        <div class="hdr-right">
+          <button class="tour-btn" id="btnTour" type="button" aria-label="Start Boss Co-Pilot Flight Tour">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            <span>Flight Tour</span>
+          </button>
+          <a class="btn cobalt sm" href="#gate-06">Sign Pass →</a>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
+
+    <!-- Iconic CAIRO ✈ 01 — 02 — 03 — 04 — 05 — 06 GCC Live Flight Route Bar -->
+    <nav class="flight-bar" aria-label="Flight route gates">
+      <div class="wrap flight-in">
+        <span class="flight-city">CAIRO</span>
+        <div class="flight-track" id="flightTrack">
+          <div class="flight-fill" id="flightFill"></div>
+          <div class="flight-plane" id="flightPlane" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="transform:rotate(90deg)"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+          </div>
+          <div class="flight-gates" id="flightGates">
+            <button class="flight-gate cur" type="button" data-gate="1" data-target="#gate-01"><i>01</i><span>Flight Path</span></button>
+            <button class="flight-gate" type="button" data-gate="2" data-target="#gate-02"><i>02</i><span>Services</span></button>
+            <button class="flight-gate" type="button" data-gate="3" data-target="#gate-03"><i>03</i><span>Work</span></button>
+            <button class="flight-gate" type="button" data-gate="4" data-target="#gate-04"><i>04</i><span>Direction</span></button>
+            <button class="flight-gate" type="button" data-gate="5" data-target="#gate-05"><i>05</i><span>Plans</span></button>
+            <button class="flight-gate" type="button" data-gate="6" data-target="#gate-06"><i>06</i><span>Boarding Pass</span></button>
+          </div>
+        </div>
+        <span class="flight-city">GCC</span>
+      </div>
+    </nav>
+  </div>
 
   <main>
 
-    <!-- ==================== EDITORIAL HERO ==================== -->
+    <!-- ==================== DEPARTURE HERO (COBALT CARD + THE BOSS) ==================== -->
     <section class="hero-sec">
       <div class="wrap">
-        <div class="hero-meta">
-          <span><b>BeBosS Studio</b> · Cairo — Serving Egypt &amp; the GCC</span>
-          <span>Strategy · Identity · Art Direction · Film Crew · Paid Growth</span>
-        </div>
-
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <span class="eyebrow c" style="margin-bottom:18px">360° Creative &amp; Growth Studio</span>
-            <h1 class="h-hero">We Build Brands<br>People Own<span class="dot">.</span></h1>
-            <p>Strategy to sales under one roof. From brand books and on-location film crews to full-funnel campaigns built for ambitious founders across Egypt and the GCC.</p>
-            <div class="hero-cta">
-              <a class="btn cobalt" href="#sign">Start &amp; Sign a Project →</a>
-              <a class="btn line" href="#work">See Our Work</a>
-              <a class="hero-link" href="#contact">Direct Contact</a>
-            </div>
-          </div>
-
-          <div class="hero-frame">
-            <div class="hero-caption">
-              <span><i></i>THE BOSS · CAIRO</span>
-              <span>BE YOUR OWN BOSS</span>
-            </div>
-            <img src="assets/brand/boss.webp" alt="The Boss — BeBosS studio character" width="520" height="600">
-          </div>
-        </div>
-      </div>
-
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>Brand Strategy</span>
-          <span>Identity Systems</span>
-          <span>Art Direction</span>
-          <span>Video &amp; Motion</span>
-          <span>Content Systems</span>
-          <span>Performance Growth</span>
-          <span>Web Experiences</span>
-          <span>Events &amp; Packaging</span>
-          <span>Be Your Own Boss</span>
-          <span>Brand Strategy</span>
-          <span>Identity Systems</span>
-          <span>Art Direction</span>
-          <span>Video &amp; Motion</span>
-          <span>Content Systems</span>
-          <span>Performance Growth</span>
-          <span>Web Experiences</span>
-          <span>Events &amp; Packaging</span>
-          <span>Be Your Own Boss</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== CHAPTER 01 · ABOUT & CLIENTS ==================== -->
-    <section class="sec" id="about">
-      <div class="wrap">
-        <div class="about-grid">
+        <div class="hero-card">
           <div>
-            <span class="eyebrow c">01 · About BeBosS</span>
-            <h2 class="h-xl" style="margin-top:14px">One Studio.<br>Nine Disciplines<span class="dot">.</span></h2>
-            <p class="lead">Founders shouldn’t juggle four separate agencies just to look like one brand. BeBosS brings brand strategy, visual direction, in-house filming, bilingual content, and paid performance together under one creative lead.</p>
-            <div class="values-strip">
-              <span>One Camera Standard</span>
-              <span>Bilingual EN · AR</span>
-              <span>72h First Drafts</span>
-              <span>4h Reply SLA</span>
+            <span class="eyebrow w">ONE STUDIO · NINE SERVICES · CAIRO TO GCC</span>
+            <h1>Be your own boss<span class="dot">.</span></h1>
+            <p class="hero-p">Board the BeBosS production desk — explore our real November campaigns, inspect nine studio services under one roof, pick your 2026 plan, and sign your Boarding Pass directly with our Cairo team.</p>
+            <div class="hero-actions">
+              <a class="btn pink" href="#gate-06">Open Boarding Pass →</a>
+              <a class="btn cream" href="#gate-03">Explore Live Work</a>
             </div>
+            <button class="hero-tour-link" id="btnHeroTour" type="button">✈ Or take the 60-second Boss Flight Tour</button>
           </div>
 
-          <div class="stat-grid" aria-label="BeBosS studio benchmarks">
-            <div class="stat-cell">
-              <b>9+</b>
-              <span>Years shaping brands across Egypt &amp; the GCC</span>
-            </div>
-            <div class="stat-cell">
-              <b>5</b>
-              <span>Regional markets served from our Cairo studio</span>
-            </div>
-            <div class="stat-cell">
-              <b>360°</b>
-              <span>Strategy to sales under one unified creative roof</span>
-            </div>
-            <div class="stat-cell">
-              <b>72 h</b>
-              <span>First creative drafts delivered after project kickoff</span>
-            </div>
+          <ul class="hero-checks">
+            <li>Strategy delivered in 5 working days</li>
+            <li>First creative drafts in 72 hours</li>
+            <li>In-house film crew from Growth up</li>
+            <li>You approve every calendar before live</li>
+          </ul>
+
+          <div class="hero-boss">
+            <img src="assets/brand/boss.webp" alt="The Boss — BeBosS studio character" width="250" height="310">
           </div>
         </div>
 
+        <!-- 4 Canonical Studio Stats (Navy anchor + 3 Paper cards) -->
+        <div class="stats-row" aria-label="BeBosS studio benchmarks">
+          <div class="stat-box dark">
+            <b>9+</b>
+            <span>Years of team experience across Egypt &amp; the GCC</span>
+          </div>
+          <div class="stat-box">
+            <b>5</b>
+            <span>Regional markets served from our Cairo desk</span>
+          </div>
+          <div class="stat-box">
+            <b>360°</b>
+            <span>Strategy, identity, design, film crew, content &amp; ads</span>
+          </div>
+          <div class="stat-box">
+            <b>72 h</b>
+            <span>To first creative drafts on every new brief</span>
+          </div>
+        </div>
+
+        <!-- 4 Instant Client Boarding Gates (Zero Confusion — Pick Your Destination) -->
+        <div class="quick-gates" aria-label="Quick destinations">
+          <a class="qgate accent" href="#gate-06">
+            <small>GATE 06 · SIGN</small>
+            <strong>Claim &amp; Sign Boarding Pass →</strong>
+            <span>Configure scope, sign digitally &amp; dispatch</span>
+          </a>
+          <a class="qgate" href="#gate-03">
+            <small>GATE 03 · PORTFOLIO</small>
+            <strong>See Our Work &amp; Calendar →</strong>
+            <span>13 @be.bossss drops &amp; November schedule</span>
+          </a>
+          <a class="qgate" href="#gate-05">
+            <small>GATE 02 &amp; 05 · SCOPE</small>
+            <strong>Services &amp; 2026 Plans →</strong>
+            <span>9 disciplines · Starter, Growth &amp; Boss</span>
+          </a>
+          <a class="qgate" href="#contact">
+            <small>DIRECT DESK · 4H SLA</small>
+            <strong>Contact BeBosS →</strong>
+            <span>WhatsApp +20 100 300 0607 · Email</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== GATE 01 · CHOOSE YOUR FLIGHT PATH ==================== -->
+    <section class="sec" id="gate-01" data-gate-sec="1">
+      <div class="wrap">
+        <div class="panel">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap">
+            <div>
+              <span class="eyebrow c">GATE 01 · CHOOSE YOUR FLIGHT PATH</span>
+              <h2 class="h-lg" style="margin-top:10px">Where is your brand today<span class="dot">?</span></h2>
+            </div>
+            <span class="pill cob" id="routeBadge">Ready to Grow</span>
+          </div>
+
+          <div class="flight-routes" id="flightRoutes" role="tablist" aria-label="Brand flight stage">
+            <button class="route-card" type="button" data-route="launch">
+              <div class="route-top"><small>ROUTE 01</small><i aria-hidden="true">→</i></div>
+              <strong>Launch New</strong>
+              <p>Need brand strategy, identity system, and day-one market authority.</p>
+            </button>
+            <button class="route-card on" type="button" data-route="grow">
+              <div class="route-top"><small>ROUTE 02</small><i aria-hidden="true">→</i></div>
+              <strong>Ready to Grow</strong>
+              <p>Need our filming crew, monthly reels, bilingual content &amp; paid ads.</p>
+            </button>
+            <button class="route-card" type="button" data-route="own">
+              <div class="route-top"><small>ROUTE 03</small><i aria-hidden="true">→</i></div>
+              <strong>Own the Category</strong>
+              <p>Want the full 360° studio behind you across up to 4 platforms.</p>
+            </button>
+          </div>
+
+          <div class="directive-bar">
+            <span id="routeDirective"><b>BeBosS Directive:</b> Recommended path — <b>Growth Plan (EGP 38,000/mo)</b> with 1 monthly filming day, 6 crew reels &amp; paid ads management.</span>
+            <a href="#gate-05" id="routeAction">View matching plan →</a>
+          </div>
+        </div>
+
+        <!-- Five Steps to Live -->
+        <div style="margin-top:28px">
+          <span class="eyebrow">HOW WE FLY · FIVE STEPS TO LIVE</span>
+          <div class="steps-5">
+            <div class="step-tile"><b>01</b><strong>Discovery</strong><span>Align goals, audience &amp; market</span></div>
+            <div class="step-tile"><b>02</b><strong>Strategy</strong><span>Roadmap locked in 5 days</span></div>
+            <div class="step-tile"><b>03</b><strong>First Drafts</strong><span>Creative direction in 72 hours</span></div>
+            <div class="step-tile"><b>04</b><strong>Approval</strong><span>You sign off before going live</span></div>
+            <div class="step-tile"><b>05</b><strong>Launch &amp; Scale</strong><span>Filming, publishing &amp; paid growth</span></div>
+          </div>
+        </div>
+
+        <!-- Selected Regional & Global Experience -->
         <div class="clients-band">
-          <span class="eyebrow">Selected Regional &amp; Global Experience</span>
+          <span class="eyebrow">BRANDS SHAPED BY OUR TEAM (PAST &amp; PRESENT SCOPE)</span>
           <div class="clients-row">
-            <div class="client-item">
-              <small>01 · F&amp;B &amp; HOSPITALITY</small>
-              <strong>Buffalo Wild Wings</strong>
-            </div>
-            <div class="client-item">
-              <small>02 · QSR &amp; CAMPAIGNS</small>
-              <strong>Texas Chicken</strong>
-            </div>
-            <div class="client-item">
-              <small>03 · TELECOM · UAE</small>
-              <strong>du</strong>
-            </div>
-            <div class="client-item">
-              <small>04 · BEAUTY &amp; RETAIL</small>
-              <strong>NOTE.</strong>
-            </div>
+            <div class="client-item"><small>01 · F&amp;B &amp; HOSPITALITY</small><strong>Buffalo Wild Wings</strong></div>
+            <div class="client-item"><small>02 · QSR &amp; CAMPAIGNS</small><strong>Texas Chicken</strong></div>
+            <div class="client-item"><small>03 · TELECOM · UAE</small><strong>du</strong></div>
+            <div class="client-item"><small>04 · BEAUTY &amp; RETAIL</small><strong>NOTE.</strong></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== CHAPTER 02 · INTERACTIVE SERVICES ==================== -->
-    <section class="sec sec-paper" id="services">
+    <!-- ==================== GATE 02 · NINE SERVICES, ONE ROOF ==================== -->
+    <section class="sec sec-paper" id="gate-02" data-gate-sec="2">
       <div class="wrap">
         <div class="sec-head">
           <div>
-            <span class="eyebrow c">02 · What We Do</span>
+            <span class="eyebrow c">GATE 02 · WHAT WE DO</span>
             <h2 class="h-xl">Nine Services.<br>One Roof<span class="dot">.</span></h2>
           </div>
-          <p class="lead" style="margin:0">Hover or select any discipline to inspect studio deliverables, pricing tier, and add it straight to your project brief.</p>
+          <p class="lead" style="margin:0">Hover or tap any discipline to inspect studio deliverables, pricing tier, and add it straight onto your Boarding Pass.</p>
         </div>
 
         <div class="svc-layout">
@@ -167,12 +216,12 @@
       </div>
     </section>
 
-    <!-- ==================== CHAPTER 03 · SELECTED WORK & CALENDAR ==================== -->
-    <section class="sec" id="work">
+    <!-- ==================== GATE 03 · SELECTED WORK & LIVE CALENDAR ==================== -->
+    <section class="sec" id="gate-03" data-gate-sec="3">
       <div class="wrap">
         <div class="sec-head">
           <div>
-            <span class="eyebrow c">03 · Selected Work &amp; Live Feed</span>
+            <span class="eyebrow c">GATE 03 · SELECTED WORK &amp; LIVE CALENDAR</span>
             <h2 class="h-xl">Work Built to<br>Stop the Scroll<span class="dot">.</span></h2>
           </div>
           <div class="tabs" id="workTabs" role="tablist" aria-label="Work view switch">
@@ -181,7 +230,7 @@
           </div>
         </div>
 
-        <!-- View A: Clean Editorial Selected Work Gallery -->
+        <!-- View A: Editorial Selected Work Gallery -->
         <div id="workGalleryWrap">
           <div class="cal-tools">
             <div class="chips" id="workChips">
@@ -211,12 +260,12 @@
       </div>
     </section>
 
-    <!-- ==================== CHAPTER 04 · PHILOSOPHY & DIRECTION ==================== -->
-    <section class="sec sec-navy" id="philosophy">
+    <!-- ==================== GATE 04 · BRAND DIRECTION & FLIGHT DECK ==================== -->
+    <section class="sec sec-navy" id="gate-04" data-gate-sec="4">
       <div class="wrap">
         <div class="sec-head">
           <div>
-            <span class="eyebrow p">04 · Brand Direction &amp; Philosophy</span>
+            <span class="eyebrow p">GATE 04 · BRAND DIRECTION &amp; PHILOSOPHY</span>
             <h2 class="h-xl">We Don’t Post Noise.<br>We Build Authority<span class="dot">.</span></h2>
           </div>
           <p class="lead" style="margin:0">Every campaign is engineered through one camera standard, our 80/20 creative ratio, and the 1 · 3 · 5 scroll test.</p>
@@ -225,43 +274,31 @@
         <div class="phil-grid">
           <div class="phil-stage">
             <span class="phil-badge" id="philBadge">01 · THE 1 · 3 · 5 TEST</span>
-            <img id="philImg" src="assets/brand/launch-carousel.webp" alt="BeBosS creative direction visual">
+            <img id="philImg" src="assets/calendar/post-04-the-scroll-stopping-challenge.webp" alt="BeBosS creative direction visual">
           </div>
 
           <div>
             <h3 class="h-lg" id="philTitle" style="color:var(--cream)">1 Second to Stop. 3 to Read. 5 to Remember.</h3>
-            <p class="lead" id="philDesc" style="margin-top:12px">If a visual doesn’t arrest the thumb in one second, communicate the idea in three, and leave a signature memory by five, it never leaves our Cairo studio.</p>
+            <p class="lead" id="philDesc" style="margin-top:12px">If a frame doesn’t arrest the thumb in one second, deliver the promise in three, and leave an unmistakable brand memory by five, it never leaves our Cairo studio.</p>
             <div class="phil-steps" id="philSteps"></div>
           </div>
         </div>
 
         <div class="pillars-row">
-          <div class="pillar-d">
-            <b>Retro</b>
-            <p>Tactile print warmth, halftone texture, and unmistakable studio craft.</p>
-          </div>
-          <div class="pillar-d">
-            <b>Future</b>
-            <p>Sharp geometric grids, kinetic motion, and conversion-first digital clarity.</p>
-          </div>
-          <div class="pillar-d">
-            <b>Funky Pop</b>
-            <p>Electric cobalt confidence anchored by one deliberate pink signature touch.</p>
-          </div>
-          <div class="pillar-d">
-            <b>Editorial</b>
-            <p>Disciplined typography, generous breathing room, and zero visual clutter.</p>
-          </div>
+          <div class="pillar-d"><b>Retro</b><p>Tactile print warmth, halftone texture, and unmistakable studio craft.</p></div>
+          <div class="pillar-d"><b>Future</b><p>Sharp geometric grids, kinetic motion, and conversion-first digital clarity.</p></div>
+          <div class="pillar-d"><b>Funky Pop</b><p>Electric cobalt confidence anchored by one deliberate pink signature touch.</p></div>
+          <div class="pillar-d"><b>Editorial</b><p>Disciplined typography, generous breathing room, and zero visual clutter.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== CHAPTER 05 · PLANS & PRICING ==================== -->
-    <section class="sec sec-paper" id="plans">
+    <!-- ==================== GATE 05 · 2026 PLANS & BOARDING CLASSES ==================== -->
+    <section class="sec sec-paper" id="gate-05" data-gate-sec="5">
       <div class="wrap">
         <div class="sec-head">
           <div>
-            <span class="eyebrow c">05 · 2026 Investment</span>
+            <span class="eyebrow c">GATE 05 · 2026 BOARDING CLASSES</span>
             <h2 class="h-xl">Clear Pricing.<br>Zero Surprises<span class="dot">.</span></h2>
           </div>
           <div class="tabs" id="planTabs" role="tablist" aria-label="Pricing model">
@@ -306,21 +343,21 @@
       </div>
     </section>
 
-    <!-- ==================== CHAPTER 06 · SIGN & BOARDING PASS ==================== -->
-    <section class="sec" id="sign">
+    <!-- ==================== GATE 06 · SIGNATURE BOARDING PASS & SIGN DESK ==================== -->
+    <section class="sec" id="gate-06" data-gate-sec="6">
       <div class="wrap">
         <div class="sec-head">
           <div>
-            <span class="eyebrow p">06 · Start &amp; Sign With BeBosS</span>
-            <h2 class="h-xl">Claim Your Seat.<br>Sign Your Brief<span class="dot">.</span></h2>
+            <span class="eyebrow p">GATE 06 · FINAL BOARDING &amp; SIGNATURE DESK</span>
+            <h2 class="h-xl">Claim Your Seat.<br>Sign Your Boarding Pass<span class="dot">.</span></h2>
           </div>
-          <p class="lead" style="margin:0">Pick your scope, fill in your brand, sign digitally, and dispatch your BeBosS Boarding Pass directly to our Cairo desk.</p>
+          <p class="lead" style="margin:0">Your live BeBosS Boarding Pass stamps every Gate you explore. Pick your scope, sign digitally, and dispatch straight to our Cairo desk.</p>
         </div>
 
         <div class="board">
           <!-- Left: 3-Step Client Brief & Digital Signature -->
           <div class="card">
-            <h3 class="h-md"><span class="step-num">1</span>Choose Your Scope</h3>
+            <h3 class="h-md"><span class="step-num">1</span>Choose Your Boarding Class</h3>
             <p style="margin:6px 0 14px;font-size:13.5px;color:var(--muted)">Select a monthly plan or one-time project — and optionally add extra services.</p>
             <div class="opt-grid" id="scopeOpts"></div>
 
@@ -329,7 +366,7 @@
               <div class="addons" id="addonBtns"></div>
             </div>
 
-            <h3 class="h-md" style="margin-top:28px;margin-bottom:14px"><span class="step-num">2</span>Your Brand Details</h3>
+            <h3 class="h-md" style="margin-top:26px;margin-bottom:14px"><span class="step-num">2</span>Passenger &amp; Brand Details</h3>
             <div class="grid g2" style="gap:12px">
               <div class="field">
                 <label for="inBrand">Brand / Company Name</label>
@@ -351,7 +388,7 @@
               </div>
             </div>
             <div class="field">
-              <label for="inNotes">What are we building together?</label>
+              <label for="inNotes">Flight Notes &amp; Launch Goals</label>
               <textarea id="inNotes" rows="3" placeholder="Launch timeline, target market (Egypt / GCC), current Instagram handle, or key goals..."></textarea>
             </div>
 
@@ -366,7 +403,7 @@
             </div>
           </div>
 
-          <!-- Right: Live BeBosS Signature Boarding Pass & Dispatch -->
+          <!-- Right: Live Signature BeBosS Boarding Pass + Dispatch -->
           <div class="sticky" style="display:grid;gap:18px">
             <div class="ticket" aria-label="Live BeBosS Boarding Pass">
               <div class="t-main">
@@ -374,11 +411,11 @@
                   <img src="assets/brand/wordmark-cobalt.png" alt="BeBosS">
                   <span>ADMIT ONE</span>
                 </div>
-                <div class="t-lbl" style="margin-top:16px">PASSENGER · BRAND</div>
+                <div class="t-lbl" style="margin-top:14px">PASSENGER · BRAND</div>
                 <div class="t-name" id="tName">YOUR BRAND</div>
                 <div class="t-row">
                   <div>
-                    <div class="t-lbl">SELECTED PLAN</div>
+                    <div class="t-lbl">BOARDING CLASS</div>
                     <strong id="tScope">GROWTH PLAN</strong>
                   </div>
                   <div>
@@ -386,18 +423,24 @@
                     <strong>CAIRO · GCC</strong>
                   </div>
                 </div>
-                <div class="t-icons">
-                  <a href="tel:+201003000607" aria-label="Call BeBosS">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  </a>
-                  <a href="https://wa.me/201003000607" target="_blank" rel="noopener" aria-label="WhatsApp BeBosS">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                  </a>
-                  <a href="https://www.instagram.com/be.bossss/" target="_blank" rel="noopener" aria-label="BeBosS Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                  </a>
+                <div class="t-lbl">GATES STAMPED</div>
+                <div class="t-gates" id="tGates">
+                  <i class="ok">01</i><i>02</i><i>03</i><i>04</i><i>05</i><i>06</i>
                 </div>
-                <div class="t-stamp">BE YOUR<br>OWN BOSS.</div>
+                <div class="t-bottom">
+                  <div class="t-icons">
+                    <a href="tel:+201003000607" aria-label="Call BeBosS">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </a>
+                    <a href="https://wa.me/201003000607" target="_blank" rel="noopener" aria-label="WhatsApp BeBosS">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/be.bossss/" target="_blank" rel="noopener" aria-label="BeBosS Instagram">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                  </div>
+                  <div class="t-stamp">BE YOUR<br>OWN BOSS.</div>
+                </div>
               </div>
               <div class="t-stub">
                 <img src="assets/brand/boss.webp" alt="The Boss">
@@ -424,9 +467,9 @@
               </div>
 
               <div style="display:grid;gap:10px;margin-top:8px">
-                <button class="btn green" id="btnSendWA" type="button" style="width:100%">Send Signed Brief via WhatsApp →</button>
+                <button class="btn green" id="btnSendWA" type="button" style="width:100%">Send Signed Boarding Pass via WhatsApp →</button>
                 <button class="btn cobalt" id="btnSendMail" type="button" style="width:100%">Email beboss.creative@outlook.com</button>
-                <button class="btn line sm" id="btnCopyBrief" type="button" style="width:100%">Copy Signed Brief Summary</button>
+                <button class="btn line sm" id="btnCopyBrief" type="button" style="width:100%">Copy Signed Pass Summary</button>
               </div>
             </div>
           </div>
@@ -437,11 +480,11 @@
     <!-- ==================== CLOSING CTA ==================== -->
     <section class="close-cta">
       <div class="wrap">
-        <span class="eyebrow p">Direct Studio Line</span>
-        <h2>Let’s Build Something Real<span class="dot">.</span></h2>
-        <p>Talk directly with our Cairo creative desk. Clear plans, bilingual craft, and replies within 4 working hours.</p>
+        <span class="eyebrow p">CAIRO TO GCC · DIRECT LINE</span>
+        <h2>Ready for Takeoff<span class="dot">.</span></h2>
+        <p>Talk directly with the BeBosS creative desk. Clear boarding plans, bilingual craft, and replies within 4 working hours.</p>
         <div class="close-btns">
-          <a class="btn pink" href="#sign">Start &amp; Sign a Project →</a>
+          <a class="btn pink" href="#gate-06">Claim Your Boarding Pass →</a>
           <a class="btn cream" href="https://wa.me/201003000607" target="_blank" rel="noopener">WhatsApp +20 100 300 0607</a>
           <a class="btn line-w" href="mailto:beboss.creative@outlook.com">beboss.creative@outlook.com</a>
         </div>
@@ -449,7 +492,7 @@
     </section>
   </main>
 
-  <!-- ==================== 4-COLUMN EDITORIAL FOOTER ==================== -->
+  <!-- ==================== 4-COLUMN FOOTER ==================== -->
   <footer class="foot" id="contact">
     <div class="wrap">
       <div class="foot-grid">
@@ -459,14 +502,14 @@
         </div>
 
         <div>
-          <h4>Navigate</h4>
+          <h4>Flight Gates</h4>
           <ul>
-            <li><a href="#about">About BeBosS</a></li>
-            <li><a href="#services">Nine Services</a></li>
-            <li><a href="#work">Selected Work &amp; Calendar</a></li>
-            <li><a href="#philosophy">Brand Direction</a></li>
-            <li><a href="#plans">2026 Plans</a></li>
-            <li><a href="#sign">Start &amp; Sign</a></li>
+            <li><a href="#gate-01">Gate 01 · Flight Path</a></li>
+            <li><a href="#gate-02">Gate 02 · Nine Services</a></li>
+            <li><a href="#gate-03">Gate 03 · Work &amp; Calendar</a></li>
+            <li><a href="#gate-04">Gate 04 · Brand Direction</a></li>
+            <li><a href="#gate-05">Gate 05 · 2026 Plans</a></li>
+            <li><a href="#gate-06">Gate 06 · Boarding Pass</a></li>
           </ul>
         </div>
 
@@ -484,18 +527,31 @@
           <h4>Channels</h4>
           <ul>
             <li><a href="https://www.instagram.com/be.bossss/" target="_blank" rel="noopener">Instagram @be.bossss ↗</a></li>
-            <li><a href="#work">Live November Schedule</a></li>
+            <li><a href="#gate-03">Live November Schedule</a></li>
             <li>Reply SLA: Within 4 working hours</li>
           </ul>
         </div>
       </div>
 
       <div class="foot-bottom">
-        <span>© 2026 BeBosS Studio. All rights reserved.</span>
+        <span>© 2026 BeBosS. All rights reserved.</span>
         <span>BE YOUR OWN BOSS.</span>
       </div>
     </div>
   </footer>
+
+  <!-- ==================== OPTIONAL NON-BLOCKING BOSS CO-PILOT TOUR ==================== -->
+  <aside class="coach" id="bossCoach" hidden aria-live="polite">
+    <img class="coach-boss" src="assets/brand/boss.webp" alt="">
+    <span class="eyebrow p" id="coachGate">GATE 01 · DEPARTURE</span>
+    <h3 id="coachTitle">Pick where your brand stands today.</h3>
+    <p id="coachBody">Select your starting route below and BeBosS recommends your matching plan and crew automatically.</p>
+    <div class="coach-foot">
+      <span class="count" id="coachCount">Gate 1 / 6</span>
+      <button class="btn line sm" id="coachClose" type="button">Exit</button>
+      <button class="btn cobalt sm" id="coachNext" type="button">Next Gate →</button>
+    </div>
+  </aside>
 
   <!-- ==================== FLOATING WHATSAPP (DESKTOP) ==================== -->
   <a class="wa-float" href="https://wa.me/201003000607" target="_blank" rel="noopener" aria-label="Chat with BeBosS on WhatsApp">
@@ -505,21 +561,21 @@
 
   <!-- ==================== MOBILE BOTTOM NAV ==================== -->
   <nav class="bnav" id="bnav" aria-label="Mobile quick navigation">
-    <a href="#work" data-sec="work">
+    <a href="#gate-01" data-sec="gate-01">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+      <span>Route</span>
+    </a>
+    <a href="#gate-03" data-sec="gate-03">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
       <span>Work</span>
     </a>
-    <a href="#services" data-sec="services">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      <span>Services</span>
-    </a>
-    <a href="#plans" data-sec="plans">
+    <a href="#gate-05" data-sec="gate-05">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
       <span>Plans</span>
     </a>
-    <a href="#sign" data-sec="sign">
+    <a href="#gate-06" data-sec="gate-06">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
-      <span>Sign</span>
+      <span>Pass</span>
     </a>
   </nav>
 
@@ -545,7 +601,7 @@
           <div class="tags" id="mTags"></div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:auto">
             <a class="btn cobalt sm" id="mIg" href="https://www.instagram.com/be.bossss/" target="_blank" rel="noopener">View on @be.bossss ↗</a>
-            <a class="btn line sm" id="mBrief" href="#sign">Build a Campaign Like This →</a>
+            <a class="btn line sm" id="mBrief" href="#gate-06">Add to My Boarding Pass →</a>
           </div>
         </div>
       </div>
