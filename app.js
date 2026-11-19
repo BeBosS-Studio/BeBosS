@@ -1,6 +1,6 @@
 /* ==========================================================================
-   BeBosS · Interactive Editorial Studio Logic
-   Zero personal names · View-only media · Effortless client journey
+   BeBosS · Boarding Pass & Airline Flight Journey Interactive Logic
+   Zero personal names · View-only media · Effortless CAIRO -> GCC navigation
    ========================================================================== */
 (() => {
   "use strict";
@@ -21,6 +21,27 @@
     "social-management": "assets/calendar/month-view.webp",
     "events-activations": "assets/calendar/post-01-final-say-yours.webp",
     "print-packaging": "assets/slides/final-say-yours-04.webp",
+  };
+
+  const ROUTES = {
+    launch: {
+      badge: "Launch New",
+      scopeId: "identity",
+      planTab: "onetime",
+      directive: "<b>BeBosS Directive:</b> Recommended path — <b>Brand Identity Project (EGP 45,000)</b> covering strategy, master wordmark, colour law &amp; launch book.",
+    },
+    grow: {
+      badge: "Ready to Grow",
+      scopeId: "growth",
+      planTab: "monthly",
+      directive: "<b>BeBosS Directive:</b> Recommended path — <b>Growth Plan (EGP 38,000/mo)</b> with 1 monthly filming day, 6 crew reels &amp; paid ads management.",
+    },
+    own: {
+      badge: "Own the Category",
+      scopeId: "boss",
+      planTab: "monthly",
+      directive: "<b>BeBosS Directive:</b> Recommended path — <b>Boss Plan (EGP 60,000/mo)</b> with dedicated art director, 2 filming days, 10 reels &amp; Meta/TikTok/Google ads.",
+    },
   };
 
   const PHILOSOPHY_STEPS = [
@@ -71,7 +92,19 @@
     { id: "launch", kind: "One-Time Project", name: "Launch Campaign", short: "From EGP 60,000", price: 60000 },
   ];
 
+  const TOUR_STOPS = [
+    { gate: 1, sel: "#gate-01", tag: "GATE 01 · FLIGHT PATH", title: "Pick where your brand stands today.", body: "Tap Launch New, Ready to Grow, or Own the Category — BeBosS recommends your matching plan and pre-fills your Boarding Pass." },
+    { gate: 2, sel: "#gate-02", tag: "GATE 02 · NINE SERVICES", title: "Inspect every discipline under one roof.", body: "Hover or tap any numbered service from 01 to 09 to preview real deliverables and add extras straight onto your Boarding Pass." },
+    { gate: 3, sel: "#gate-03", tag: "GATE 03 · LIVE WORK & CALENDAR", title: "Browse our real @be.bossss campaigns.", body: "Swipe through any campaign carousel or switch to the November Calendar to see how BeBosS schedules every drop." },
+    { gate: 4, sel: "#gate-04", tag: "GATE 04 · BRAND DIRECTION", title: "See the rules behind the craft.", body: "Explore our 1 · 3 · 5 scroll test, 80/20 system, and one-camera standard on the BeBosS Flight Deck." },
+    { gate: 5, sel: "#gate-05", tag: "GATE 05 · BOARDING CLASSES", title: "Clear 2026 EGP plans, zero guesswork.", body: "Compare Monthly Retainers (Starter, Growth, Boss) or One-Time Projects — click Choose to load it straight onto your pass." },
+    { gate: 6, sel: "#gate-06", tag: "GATE 06 · FINAL BOARDING", title: "Sign your BeBosS Boarding Pass.", body: "Type your brand name, sign inside the box, and dispatch your Boarding Pass straight to our Cairo WhatsApp or Email desk." },
+  ];
+
   const state = {
+    currentGate: 1,
+    stampedGates: new Set([1]),
+    activeRoute: "grow",
     activeServiceId: SERVICES[0].id,
     workView: "gallery",
     workFilter: "all",
@@ -83,6 +116,8 @@
     hasSignature: false,
     modalPost: null,
     modalSlide: 0,
+    tourActive: false,
+    tourIndex: 0,
   };
 
   /* ---------- Toast ---------- */
@@ -96,7 +131,7 @@
     toastTimer = setTimeout(() => el.classList.remove("on"), 2600);
   }
 
-  /* ---------- View-only image protection ---------- */
+  /* ---------- View-only media protection ---------- */
   document.addEventListener("contextmenu", (e) => {
     if (e.target && e.target.tagName === "IMG") e.preventDefault();
   });
@@ -104,7 +139,70 @@
     if (e.target && e.target.tagName === "IMG") e.preventDefault();
   });
 
-  /* ---------- Chapter 02: Interactive Numbered Services ---------- */
+  /* ---------- Live CAIRO -> GCC Flight Route Bar & Boarding Pass Gate Stamps ---------- */
+  function setActiveGate(gateNum) {
+    const g = Math.max(1, Math.min(6, Number(gateNum) || 1));
+    state.currentGate = g;
+    for (let i = 1; i <= g; i++) state.stampedGates.add(i);
+
+    const pct = ((g - 1) / 5) * 100;
+    const fill = $("#flightFill");
+    const plane = $("#flightPlane");
+    if (fill) fill.style.width = `calc(${pct}% - ${pct > 0 ? 10 : 0}px)`;
+    if (plane) plane.style.left = `calc(10px + (100% - 20px) * ${(g - 1) / 5})`;
+
+    $$("#flightGates .flight-gate").forEach((btn) => {
+      const n = Number(btn.dataset.gate);
+      btn.classList.toggle("cur", n === g);
+      btn.classList.toggle("ok", n < g || state.stampedGates.has(n));
+    });
+
+    $$("#tGates i").forEach((dot, idx) => {
+      dot.classList.toggle("ok", state.stampedGates.has(idx + 1));
+    });
+  }
+
+  function initFlightBar() {
+    $$("#flightGates .flight-gate").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const g = Number(btn.dataset.gate);
+        const target = $(btn.dataset.target);
+        setActiveGate(g);
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+    setActiveGate(1);
+  }
+
+  /* ---------- GATE 01: Flight Path Selector ---------- */
+  function initFlightRoutes() {
+    $$("#flightRoutes .route-card").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = btn.dataset.route;
+        const cfg = ROUTES[key];
+        if (!cfg) return;
+        state.activeRoute = key;
+        $$("#flightRoutes .route-card").forEach((b) => b.classList.toggle("on", b === btn));
+        $("#routeBadge").textContent = cfg.badge;
+        $("#routeDirective").innerHTML = cfg.directive;
+
+        // Pre-configure matching plan on Plans & Boarding Pass
+        state.selectedScopeId = cfg.scopeId;
+        state.planTab = cfg.planTab;
+        $$("#planTabs .tab").forEach((t) => {
+          const on = t.dataset.ptab === state.planTab;
+          t.classList.toggle("on", on);
+          t.setAttribute("aria-selected", String(on));
+        });
+        renderPlans();
+        renderScopeOpts();
+        updateSummary();
+        showToast(`Flight Path set: ${cfg.badge}`);
+      });
+    });
+  }
+
+  /* ---------- GATE 02: Interactive Numbered Services ---------- */
   function renderServices() {
     const list = $("#svcList");
     if (!list) return;
@@ -160,20 +258,19 @@
         <ul>${s.deliverables.map((d) => `<li><span>${d}</span></li>`).join("")}</ul>
         <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
           <button class="btn ${added ? "green" : "cobalt"} sm" type="button" id="svcAddBtn">
-            ${added ? "✓ Added to Your Brief" : "+ Add to My Brief →"}
+            ${added ? "✓ Added to Boarding Pass" : "+ Add to Boarding Pass →"}
           </button>
-          <a class="btn line sm" href="#sign">Go to Sign Desk</a>
+          <a class="btn line sm" href="#gate-06">Open Pass</a>
         </div>
       </div>`;
 
-    const addBtn = $("#svcAddBtn", box);
-    addBtn.addEventListener("click", () => {
+    $("#svcAddBtn", box).addEventListener("click", () => {
       if (state.selectedAddons.has(s.id)) {
         state.selectedAddons.delete(s.id);
-        showToast(`Removed "${s.name}" from your brief`);
+        showToast(`Removed "${s.name}" from your Boarding Pass`);
       } else {
         state.selectedAddons.add(s.id);
-        showToast(`Added "${s.name}" to your brief`);
+        showToast(`Added "${s.name}" to your Boarding Pass`);
       }
       renderServicePreview();
       renderAddons();
@@ -181,7 +278,7 @@
     });
   }
 
-  /* ---------- Chapter 03: Selected Work & November Calendar ---------- */
+  /* ---------- GATE 03: Selected Work & Live November Calendar ---------- */
   function fmtDue(iso) {
     const d = new Date(iso);
     const mon = d.toLocaleString("en-US", { month: "short" });
@@ -271,12 +368,11 @@
   function renderCalendarMonth() {
     const wrap = $("#calMonth");
     if (!wrap) return;
-    // November 2026 starts on Sunday (0) and has 30 days
     const dows = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
     const byDay = new Map();
     POSTS.forEach((p) => {
       const d = new Date(p.due);
-      if (d.getMonth() === 10) byDay.set(d.getDate(), p); // November = 10
+      if (d.getMonth() === 10) byDay.set(d.getDate(), p);
     });
 
     let html = `<div class="month">`;
@@ -392,7 +488,6 @@
     $("#mNext").addEventListener("click", () => { state.modalSlide++; updateModalSlide(); });
     $("#mBrief").addEventListener("click", () => closePostModal());
 
-    // Touch swipe inside modal slider
     let startX = 0;
     const slider = $("#mSlider");
     slider.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
@@ -412,7 +507,7 @@
     });
   }
 
-  /* ---------- Chapter 04: Philosophy Craft Lab ---------- */
+  /* ---------- GATE 04: Philosophy Craft Lab ---------- */
   function renderPhilosophy() {
     const stepsEl = $("#philSteps");
     if (!stepsEl) return;
@@ -441,7 +536,7 @@
     });
   }
 
-  /* ---------- Chapter 05: Plans & FAQs ---------- */
+  /* ---------- GATE 05: Plans & FAQs ---------- */
   function renderPlans() {
     const grid = $("#plansGrid");
     if (!grid) return;
@@ -462,7 +557,7 @@
               ${p.bullets.map((b) => `<li class="${b.included ? "" : "no"}"><span>${b.text}</span></li>`).join("")}
             </ul>
             <button class="btn ${p.cobalt ? "pink" : "cobalt"}" type="button" data-pick="${p.id}">
-              ${picked ? "Selected · Go to Sign →" : `Choose ${p.name} →`}
+              ${picked ? "Selected · Open Boarding Pass →" : `Choose ${p.name} →`}
             </button>
           </article>`;
       }).join("");
@@ -481,7 +576,7 @@
             <div class="price">${idx === 2 ? "From " : ""}${fmtEGP(p.price)} <small>+ VAT</small></div>
             <ul>${p.items.map((it) => `<li><span>${it}</span></li>`).join("")}</ul>
             <button class="btn ${dark ? "pink" : "cobalt"}" type="button" data-pick="${p.id}">
-              ${picked ? "Selected · Go to Sign →" : `Choose Project →`}
+              ${picked ? "Selected · Open Boarding Pass →" : `Choose Project →`}
             </button>
           </article>`;
       }).join("");
@@ -493,8 +588,8 @@
         renderPlans();
         renderScopeOpts();
         updateSummary();
-        $("#sign").scrollIntoView({ behavior: "smooth" });
-        showToast("Plan selected — ready for your Boarding Pass");
+        $("#gate-06").scrollIntoView({ behavior: "smooth" });
+        showToast("Boarding class loaded onto your BeBosS Pass");
       });
     });
   }
@@ -535,7 +630,7 @@
     });
   }
 
-  /* ---------- Chapter 06: Boarding Pass, Scope & Digital Signature ---------- */
+  /* ---------- GATE 06: Boarding Pass, Scope & Digital Signature ---------- */
   function renderScopeOpts() {
     const box = $("#scopeOpts");
     if (!box) return;
@@ -613,15 +708,16 @@
     return [
       "BEBOSS · SIGNED CLIENT BOARDING PASS",
       "-------------------------------------",
-      `Brand: ${brand}`,
+      `Passenger / Brand: ${brand}`,
       `Contact: ${role}`,
       `Phone / WhatsApp: ${phone}`,
       `Email: ${email}`,
-      `Selected Scope: ${sc.name} (${sc.kind})`,
+      `Boarding Class: ${sc.name} (${sc.kind})`,
+      `Route: CAIRO -> GCC`,
       `Add-On Services: ${addonsList.length ? addonsList.map((s) => s.name).join(", ") : "None"}`,
       `Estimated Investment: ${fmtEGP(sub)} + 14% VAT (${fmtEGP(vat)}) = ${fmtEGP(total)}`,
-      `Digital Signature: ${state.hasSignature ? "Signed on BeBosS Web Desk" : "Pending kickoff signature"}`,
-      `Project Notes: ${notes}`,
+      `Digital Signature: ${state.hasSignature ? "Signed on BeBosS Boarding Desk" : "Pending kickoff signature"}`,
+      `Flight Notes: ${notes}`,
       "-------------------------------------",
       "BE YOUR OWN BOSS.",
     ].join("\n");
@@ -636,7 +732,7 @@
     function prepCanvas() {
       const rect = canvas.getBoundingClientRect();
       const dpr = Math.max(window.devicePixelRatio || 1, 1);
-      if (rect.width > 0 && (canvas.width !== Math.round(rect.width * dpr))) {
+      if (rect.width > 0 && canvas.width !== Math.round(rect.width * dpr)) {
         canvas.width = Math.round(rect.width * dpr);
         canvas.height = Math.round(148 * dpr);
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -703,12 +799,12 @@
     $("#btnSendWA").addEventListener("click", () => {
       const url = `https://wa.me/201003000607?text=${encodeURIComponent(buildBriefText())}`;
       window.open(url, "_blank", "noopener");
-      showToast("Opening WhatsApp with your signed brief");
+      showToast("Opening WhatsApp with your BeBosS Boarding Pass");
     });
 
     $("#btnSendMail").addEventListener("click", () => {
       const brand = ($("#inBrand").value || "New Client").trim();
-      const subj = `BeBosS Signed Project Brief — ${brand}`;
+      const subj = `BeBosS Signed Boarding Pass — ${brand}`;
       window.location.href = `mailto:beboss.creative@outlook.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(buildBriefText())}`;
       showToast("Opening email draft to beboss.creative@outlook.com");
     });
@@ -716,16 +812,73 @@
     $("#btnCopyBrief").addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(buildBriefText());
-        showToast("Signed brief copied to clipboard");
+        showToast("Signed Boarding Pass copied to clipboard");
       } catch {
         showToast("Use WhatsApp or Email buttons to dispatch");
       }
     });
   }
 
-  /* ---------- Scroll Spy for Top Nav & Mobile Bottom Nav ---------- */
+  /* ---------- Optional Non-Blocking Boss Co-Pilot Tour ---------- */
+  function clearGateHighlights() {
+    $$(".gate-focus").forEach((el) => el.classList.remove("gate-focus"));
+  }
+
+  function renderTourStop() {
+    const stop = TOUR_STOPS[state.tourIndex];
+    if (!stop) return closeTour();
+    clearGateHighlights();
+
+    const sec = $(stop.sel);
+    if (sec) {
+      sec.classList.add("gate-focus");
+      sec.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setActiveGate(stop.gate);
+
+    $("#coachGate").textContent = stop.tag;
+    $("#coachTitle").textContent = stop.title;
+    $("#coachBody").textContent = stop.body;
+    $("#coachCount").textContent = `Gate ${stop.gate} / 6`;
+    $("#coachNext").textContent = stop.gate === 6 ? "Finish Flight ✓" : "Next Gate →";
+  }
+
+  function startTour() {
+    state.tourActive = true;
+    state.tourIndex = 0;
+    $("#bossCoach").hidden = false;
+    $("#btnTour").classList.add("on");
+    renderTourStop();
+  }
+
+  function closeTour() {
+    state.tourActive = false;
+    $("#bossCoach").hidden = true;
+    $("#btnTour").classList.remove("on");
+    clearGateHighlights();
+  }
+
+  function initTour() {
+    $("#btnTour").addEventListener("click", () => {
+      if (state.tourActive) closeTour();
+      else startTour();
+    });
+    $("#btnHeroTour").addEventListener("click", startTour);
+    $("#coachClose").addEventListener("click", closeTour);
+    $("#coachNext").addEventListener("click", () => {
+      if (state.tourIndex >= TOUR_STOPS.length - 1) {
+        closeTour();
+        showToast("All 6 Gates stamped on your BeBosS Boarding Pass!");
+      } else {
+        state.tourIndex++;
+        renderTourStop();
+      }
+    });
+  }
+
+  /* ---------- Scroll Spy for Flight Bar, Top Nav & Mobile Bottom Nav ---------- */
   function initScrollSpy() {
-    const sections = ["about", "services", "work", "philosophy", "plans", "sign", "contact"]
+    const sections = ["gate-01", "gate-02", "gate-03", "gate-04", "gate-05", "gate-06", "contact"]
       .map((id) => document.getElementById(id))
       .filter(Boolean);
 
@@ -736,14 +889,18 @@
           const id = en.target.id;
           $$("#topNav a").forEach((a) => a.classList.toggle("on", a.getAttribute("href") === "#" + id));
           $$("#bnav a").forEach((a) => a.classList.toggle("on", a.dataset.sec === id));
+          const g = en.target.dataset.gateSec;
+          if (g) setActiveGate(Number(g));
         });
       },
-      { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+      { rootMargin: "-30% 0px -55% 0px", threshold: 0 }
     );
     sections.forEach((s) => obs.observe(s));
   }
 
   /* ---------- Init ---------- */
+  initFlightBar();
+  initFlightRoutes();
   renderServices();
   renderWorkGrid();
   renderCalendarWeekly();
@@ -759,5 +916,6 @@
   updateSummary();
   initSignaturePad();
   initSignActions();
+  initTour();
   initScrollSpy();
 })();
