@@ -4,169 +4,239 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#10153A" />
-  <meta name="description" content="BeBosS — Independent 360° branding, creative direction and marketing studio in Cairo serving Egypt and the GCC. Take the interactive studio tour." />
+  <meta name="description" content="BeBosS — Independent 360° branding, creative direction and marketing studio in Cairo serving Egypt and the GCC. See our work, explore 2026 EGP plans, sign your brief, or contact us directly." />
   <meta property="og:title" content="BeBosS · Nine Services. One Roof. BE YOUR OWN BOSS." />
-  <meta property="og:description" content="Board the interactive BeBosS Studio tour — explore the live content calendar, @be.bossss feed, 9 services, 2026 EGP plans, and sign your custom brief." />
+  <meta property="og:description" content="Explore BeBosS's live work, brand direction, November content calendar, 2026 EGP plans, and sign your project brief in 60 seconds." />
   <meta property="og:type" content="website" />
-  <title>BeBosS · Studio &amp; Interactive Journey</title>
+  <title>BeBosS · 360° Branding &amp; Marketing Studio</title>
   <link rel="icon" type="image/png" href="assets/brand/wordmark-navy.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="no-save">
-  <a class="skip" href="#main">Skip to studio</a>
+<body>
+  <a class="skip" href="#hub">Skip to navigation</a>
 
-  <div class="shell">
-    <!-- Navy Studio Sidebar (Reference Layout Base) -->
-    <aside class="side" id="sidebar" aria-label="BeBosS Studio Navigation">
-      <div class="side-brand">
-        <img src="assets/brand/wordmark-cream.png" alt="BeBosS" draggable="false" />
-        <span class="eyebrow">PRODUCTION STUDIO · CAIRO &amp; GCC</span>
-      </div>
+  <!-- Crystal-Clear Sticky Top Bar (4 Links + Contact) -->
+  <header class="hdr">
+    <div class="wrap hdr-in">
+      <a href="#top" class="brand-link" aria-label="BeBosS Home">
+        <img src="assets/brand/wordmark-navy.png" alt="BeBosS" draggable="false" />
+      </a>
 
-      <button type="button" class="ws-card" id="openPassBtn" aria-label="Open your BeBosS Boarding Pass">
-        <span class="ws-ic" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>
-        </span>
-        <span>
-          <strong id="sidePassBrand">BeBosS Guest Pass</strong>
-          <small id="sidePassMeta">0 / 6 gates stamped</small>
-        </span>
-      </button>
+      <nav class="nav-links" id="topNav" aria-label="Primary Navigation">
+        <a href="#work">Our Work &amp; Brand</a>
+        <a href="#plans">Services &amp; Plans</a>
+        <a href="#sign">Sign With Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-      <div class="side-label">Studio Journey</div>
-      <nav class="nav" id="sideNav"></nav>
-
-      <div class="side-label">Studio System</div>
-      <nav class="nav" id="sysNav"></nav>
-
-      <div class="side-foot">
-        <div class="say">You have the final say.</div>
-        <p>One studio. One camera. One art director. Nine services under one roof across Egypt and the GCC.</p>
-        <button type="button" class="btn-ghost-c" id="sideTourBtn">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-          <span>Launch Guided Tour</span>
+      <div class="hdr-actions">
+        <button type="button" class="btn sm line" id="startTourBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          <span>60s Tour</span>
         </button>
-      </div>
-    </aside>
-
-    <!-- Main Cream Workspace Canvas -->
-    <div class="main">
-      <header class="top">
-        <button type="button" class="menu-btn" id="menuBtn" aria-label="Open studio menu">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        </button>
-
-        <div class="crumbs" id="crumbs">
-          <span class="hide-s">BeBosS Studio</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-          <b id="crumbCur">Studio Desk</b>
-        </div>
-
-        <div class="top-sp"></div>
-
-        <div class="search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <input type="search" id="searchInput" placeholder="Search services, plans, calendar..." autocomplete="off" aria-label="Search BeBosS studio" />
-          <div class="search-res" id="searchRes" role="listbox"></div>
-        </div>
-
-        <button type="button" class="tour-btn" id="topTourBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-          <span id="topTourLabel">Guided Tour</span>
-        </button>
-
-        <button type="button" class="avatar" id="avatarPassBtn" title="View BeBosS Boarding Pass" aria-label="View BeBosS Boarding Pass">BB</button>
-      </header>
-
-      <main class="view" id="main" tabindex="-1"></main>
-    </div>
-  </div>
-  <div class="scrim" id="scrim"></div>
-
-  <!-- Mobile Bottom Navigation -->
-  <nav class="bnav" id="bnav" aria-label="Quick navigation"></nav>
-
-  <!-- Floating Flight Path Progress (Visible during Guided Tour) -->
-  <div class="flight" id="flightBar" role="region" aria-label="BeBosS Tour Flight Path">
-    <span class="city">CAIRO</span>
-    <div class="flight-line">
-      <div class="flight-fill" id="flightFill" style="width:0%"></div>
-      <div class="flight-gates" id="flightGates"></div>
-      <div class="flight-plane" id="flightPlane" style="left:0%">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" transform="rotate(90 12 12)"/></svg>
+        <a href="#sign" class="btn sm pink hide-m">Start Project</a>
       </div>
     </div>
-    <span class="city">GCC</span>
-    <button type="button" class="x" id="exitTourBtn" title="Pause guided tour" aria-label="Pause guided tour">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
-  </div>
+  </header>
 
-  <!-- Tour Spotlight & Coach Card -->
-  <div class="spot" id="spotlight" aria-hidden="true"></div>
-  <div class="coach" id="coachCard" role="dialog" aria-live="polite">
-    <img class="coach-boss" src="assets/brand/boss.webp" alt="The Boss guide" draggable="false" />
-    <span class="eyebrow" id="coachEyebrow">GATE 01 · BOARDING</span>
-    <h3 id="coachTitle"></h3>
-    <p id="coachBody"></p>
-    <div class="task" id="coachTask">
-      <i id="coachTaskIcon">→</i>
-      <span id="coachTaskText"></span>
-    </div>
-    <div class="coach-foot">
-      <span class="count" id="coachCount">1 / 6</span>
-      <button type="button" class="btn sm line" id="coachPrev">Back</button>
-      <button type="button" class="btn sm" id="coachNext">Next Gate →</button>
-    </div>
-  </div>
-
-  <!-- Floating Resume Tour Pill -->
-  <button type="button" class="resume" id="resumeBtn">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-    <span id="resumeText">Resume Tour</span>
-  </button>
-
-  <!-- Boarding Gate Welcome Overlay (Personalized BeBosS Signature Pass) -->
-  <div class="gate" id="boardingGate" role="dialog" aria-modal="true" aria-labelledby="gateHeading">
-    <div class="gate-in">
-      <div class="gate-head">
-        <div>
-          <span class="eyebrow p">BEBOSS · TERMINAL 01 · CAIRO — GCC</span>
-          <h1 id="gateHeading">Your studio boarding pass<span class="dot">.</span></h1>
-          <p>Step inside BeBosS like a client on day one — tour the live content calendar, @be.bossss feed, 9-service studio stack, 2026 EGP plans, and sign your brief in one interactive flight.</p>
-        </div>
-        <img src="assets/brand/wordmark-cream.png" alt="BeBosS" style="width:128px" draggable="false" />
-      </div>
-
-      <div id="gateTicketSlot"></div>
-
-      <div class="gate-form">
-        <div>
-          <label for="gateBrandInput">Your Brand or Business Name</label>
-          <input id="gateBrandInput" type="text" maxlength="40" placeholder="e.g. Cairo Coffee Co. (optional)" autocomplete="organization" />
-        </div>
-        <div>
-          <label>Choose Your Destination</label>
-          <div class="dest" id="gateDestBtns">
-            <button type="button" data-dest="launch">Launch New<br /><small style="font-weight:400;opacity:.75">Identity &amp; Strategy</small></button>
-            <button type="button" class="on" data-dest="growth">Ready to Grow<br /><small style="font-weight:400;opacity:.75">Crew, Reels &amp; Ads</small></button>
-            <button type="button" data-dest="boss">Own the Category<br /><small style="font-weight:400;opacity:.75">Full 360° Studio</small></button>
+  <!-- HERO + IMMEDIATE 4-PATH CLIENT COMMAND HUB (Impossible to get lost) -->
+  <section class="hero-sec" id="top">
+    <div class="wrap">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow w">BEBOSS · CAIRO · EGYPT &amp; THE GCC</span>
+          <h1 class="h-xl">One studio. Nine services.<br />Be your own boss<span class="dot">.</span></h1>
+          <p>360° branding, creative direction, in-house filming crew, content calendars &amp; paid growth — all under one art director, with zero freelancers in between.</p>
+          <div class="hero-btns">
+            <a href="#sign" class="btn pink">Sign &amp; Start Your Project →</a>
+            <a href="#work" class="btn cream">See Our Work</a>
+            <button type="button" class="btn line-w" id="heroTourBtn">Take a 60s Guided Tour</button>
           </div>
         </div>
+        <div class="hero-art">
+          <img src="assets/brand/boss.webp" alt="The Boss mascot" draggable="false" />
+        </div>
       </div>
 
-      <div class="gate-actions">
-        <button type="button" class="btn pink" id="boardTourBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-          <span>Board the Guided Tour (6 Gates)</span>
-        </button>
-        <button type="button" class="btn cream" id="exploreFreeBtn">Enter Studio Desk</button>
-        <button type="button" class="skip-link" id="skipGateBtn">Skip intro</button>
+      <!-- 4 UNMISTAKABLE CLIENT PATHS RIGHT ABOVE THE FOLD -->
+      <div class="hub-wrap" id="hub">
+        <div class="hub-label">
+          <span class="eyebrow c">WHERE WOULD YOU LIKE TO GO?</span>
+          <span style="font-size:13px;color:var(--muted)">Pick any card below — jump straight to what you need.</span>
+        </div>
+
+        <div class="hub">
+          <a href="#work" class="hub-card" data-jump-work="feed">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg></span>
+            <strong>Our Work &amp; Brand Direction</strong>
+            <span>Browse our @be.bossss feed, live November calendar &amp; 80/20 creative standard.</span>
+            <span class="go">View portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <a href="#plans" class="hub-card">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+            <strong>Services &amp; 2026 Plans</strong>
+            <span>Compare Starter, Growth (film crew), Boss &amp; one-time EGP packages.</span>
+            <span class="go">See EGP pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <a href="#sign" class="hub-card sign">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg></span>
+            <strong>Sign &amp; Start With Us</strong>
+            <span>Choose a scope, preview your BeBosS Boarding Pass &amp; sign digitally in 60s.</span>
+            <span class="go">Sign now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <a href="#contact" class="hub-card contact">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+            <strong>Contact BeBosS Now</strong>
+            <span>WhatsApp, call +20 100 300 0607, email or DM — reply in 4 working hours.</span>
+            <span class="go">Talk to us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><b>9+</b><span>Years of team experience across Egypt &amp; the GCC</span></div>
+          <div class="stat"><b>5</b><span>Regional markets served from Cairo</span></div>
+          <div class="stat"><b>360°</b><span>Strategy, design, film, content &amp; ads</span></div>
+          <div class="stat"><b>72 h</b><span>To first drafts on every new brief</span></div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- SECTION 01: OUR WORK & BRAND DIRECTION -->
+  <section class="sec sec-alt" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow c">01 · OUR WORK &amp; BRAND DIRECTION</span>
+          <h2 class="h-lg">See what we make &amp; how we run your brand<span class="dot">.</span></h2>
+          <p class="lead">Switch between our live Instagram grid, our real November content calendar, and the BeBosS creative standard. Tap any piece to swipe through its frames.</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Work views">
+          <button type="button" class="tab on" data-worktab="feed" role="tab">@be.bossss Feed</button>
+          <button type="button" class="tab" data-worktab="calendar" role="tab">Content Calendar</button>
+          <button type="button" class="tab" data-worktab="brand" role="tab">Brand Direction</button>
+        </div>
+      </div>
+
+      <div id="workStage"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 02: SERVICES & 2026 EGP PLANS -->
+  <section class="sec" id="plans">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow c">02 · SERVICES &amp; 2026 PLANS (EGP)</span>
+          <h2 class="h-lg">Clear pricing. Zero surprises<span class="dot">.</span></h2>
+          <p class="lead">Pick a monthly plan, a one-time brand build, or inspect all 9 services. Clicking any plan loads it straight onto your BeBosS Boarding Pass below.</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Pricing views">
+          <button type="button" class="tab on" data-plantab="monthly" role="tab">Monthly Plans</button>
+          <button type="button" class="tab" data-plantab="onetime" role="tab">One-Time Projects</button>
+          <button type="button" class="tab" data-plantab="services" role="tab">All 9 Services</button>
+        </div>
+      </div>
+
+      <div id="plansStage"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 03: SIGN & START WITH US -->
+  <section class="sec sec-alt" id="sign">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow c">03 · SIGN &amp; START WITH US</span>
+          <h2 class="h-lg">Lock your scope &amp; sign in 60 seconds<span class="dot">.</span></h2>
+          <p class="lead">Your BeBosS Boarding Pass updates live as you type. Sign digitally and send straight to <strong>beboss.creative@outlook.com</strong> or WhatsApp.</p>
+        </div>
+        <span class="pill live">Replies within 4 working hours</span>
+      </div>
+
+      <div id="signStage"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 04: CONTACT BEBOSS DIRECTLY -->
+  <section class="sec" id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <div>
+          <span class="eyebrow p">04 · DIRECT STUDIO CONTACT</span>
+          <h2 class="h-lg" style="margin-top:10px">Ready to talk? Reach BeBosS in one tap<span class="dot">.</span></h2>
+          <p style="color:rgba(244,237,225,.8);margin:12px 0 0;max-width:48ch">Book a discovery call, ask about a custom scope, or send your brief directly. One account manager replies within 4 working hours on every working day.</p>
+
+          <div class="contact-grid">
+            <a class="c-tile wa" href="https://wa.me/201003000607?text=Hi%20BeBosS%20team%2C%20I%20would%20like%20to%20book%20a%20discovery%20call." target="_blank" rel="noopener">
+              <span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+              <span><strong>WhatsApp Studio</strong><small>+20 100 300 0607</small></span>
+            </a>
+
+            <a class="c-tile" href="tel:+201003000607">
+              <span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <span><strong>Call BeBosS</strong><small>+20 100 300 0607</small></span>
+            </a>
+
+            <a class="c-tile" href="mailto:beboss.creative@outlook.com?subject=BeBosS%20Studio%20Inquiry">
+              <span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+              <span><strong>Email Studio</strong><small>beboss.creative@outlook.com</small></span>
+            </a>
+
+            <a class="c-tile ig" href="https://instagram.com/be.bossss" target="_blank" rel="noopener">
+              <span class="ci"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+              <span><strong>Instagram</strong><small>@be.bossss</small></span>
+            </a>
+          </div>
+        </div>
+
+        <div id="contactTicketSlot"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <div style="display:flex;align-items:center;gap:14px">
+        <img src="assets/brand/wordmark-navy.png" alt="BeBosS" style="height:22px" draggable="false" />
+        <span>Cairo · Egypt &amp; the GCC</span>
+      </div>
+      <strong>BE YOUR OWN BOSS.</strong>
+    </div>
+  </footer>
+
+  <!-- Persistent Floating WhatsApp Button (Desktop) -->
+  <a class="wa-float" href="https://wa.me/201003000607?text=Hi%20BeBosS%20team%2C%20I%27m%20visiting%20the%20BeBosS%20website%20and%20want%20to%20connect." target="_blank" rel="noopener" aria-label="Chat with BeBosS on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <span>WhatsApp BeBosS</span>
+  </a>
+
+  <!-- Mobile 4-Button Fixed Bottom Navigation -->
+  <nav class="bnav" id="bnav" aria-label="Mobile quick navigation">
+    <a href="#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg><span>Work</span></a>
+    <a href="#plans"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg><span>Plans</span></a>
+    <a href="#sign"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></svg><span>Sign</span></a>
+    <a href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span>Contact</span></a>
+  </nav>
+
+  <!-- Optional Non-Blocking 60s Guided Tour Dock (Never darkens or traps the user) -->
+  <div class="tour-dock" id="tourDock" role="region" aria-live="polite" aria-label="Guided Tour">
+    <img src="assets/brand/boss.webp" alt="The Boss guide" draggable="false" />
+    <div class="tour-dock-body">
+      <span class="eyebrow p" id="tourStepLabel">STOP 1 OF 4 · OUR WORK</span>
+      <strong id="tourTitle"></strong>
+      <p id="tourDesc"></p>
+    </div>
+    <div class="tour-dock-btns">
+      <button type="button" class="btn sm line-w" id="tourPrev">Back</button>
+      <button type="button" class="btn sm pink" id="tourNext">Next →</button>
+      <button type="button" class="btn sm line-w" id="tourClose" aria-label="Close tour">✕</button>
     </div>
   </div>
 
-  <!-- Modal Root & Toast -->
   <div id="modalRoot"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
