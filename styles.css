@@ -22,7 +22,7 @@
   --green: #1E7A4C;
   --radius: 20px;
   --max: 1260px;
-  --nav-h: 68px;
+  --nav-h: 74px;
   --flight-h: 56px;
   --display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
   --body: "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -115,8 +115,12 @@ h1, h2, h3, h4 { font-family: var(--display); margin: 0; letter-spacing: -.03em;
   border-bottom: 1px solid var(--line);
 }
 .hdr-in { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.brand-link { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
-.brand-link img { height: 26px; width: auto; }
+.brand-link { display: inline-flex; align-items: center; flex: none; flex-shrink: 0; text-decoration: none; }
+.brand-link img {
+  display: block; flex: none; flex-shrink: 0;
+  width: 146px; min-width: 146px; max-width: none;
+  height: 35px; aspect-ratio: 1242 / 299; object-fit: contain;
+}
 .nav-links { display: flex; align-items: center; gap: 22px; }
 .nav-links a {
   position: relative; text-decoration: none; font: 600 13.5px/1 var(--display); color: var(--muted); padding: 6px 0; transition: color .2s;
@@ -387,7 +391,7 @@ tr:last-child td { border-bottom: 0; }
 .t-stub { border-left: 2.5px dashed var(--navy); position: relative; overflow: hidden; }
 .t-stub img { position: absolute; inset: 10px 8px 0; width: calc(100% - 16px); height: calc(100% - 10px); object-fit: contain; object-position: bottom center; }
 .t-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-.t-top img { width: clamp(86px, 11vw, 124px); }
+.t-top img { width: clamp(104px, 11vw, 132px); height: auto; aspect-ratio: 1242 / 299; object-fit: contain; flex: none; }
 .t-top span { font: 700 11px/1 var(--display); letter-spacing: .24em; }
 .t-lbl { font: 700 10px/1 var(--display); letter-spacing: .22em; color: var(--cobalt); text-transform: uppercase; }
 .t-name { font: 700 clamp(21px, 3vw, 33px)/1.08 var(--display); letter-spacing: -.03em; margin: 7px 0 14px; word-break: break-word; }
@@ -501,10 +505,12 @@ tr:last-child td { border-bottom: 0; }
   .flight-gate span { display: none; }
 }
 @media (max-width: 780px) {
-  :root { --nav-h: 60px; --flight-h: 50px; }
+  :root { --nav-h: 64px; --flight-h: 50px; }
   .wrap { width: min(var(--max), 100% - 28px); }
+  .brand-link img { width: 124px; min-width: 124px; height: 30px; }
   .nav-links, .wa-float { display: none; }
   .tour-btn span { display: none; }
+  .tour-btn { padding: 0 11px; }
   .flight-in { gap: 10px; padding-top: 9px; }
   .flight-city { font-size: 10px; letter-spacing: .12em; }
   .flight-gate { padding: 0; }
