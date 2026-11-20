@@ -1,5 +1,5 @@
 /* ==========================================================================
-   BeBosS · 3-Step Sales Closing Circuit Engine
+   BeBosS · Seamless 3-Step Pocket-Pass Sales Journey Engine
    ========================================================================== */
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
@@ -23,75 +23,45 @@
     t.textContent = msg;
     t.classList.add("show");
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
+    toastTimer = setTimeout(() => t.classList.remove("show"), 2400);
   };
 
   const getPlan = (id = state.planId) => ALL_PLANS.find((p) => p.id === id) || MONTHLY_PLANS[1];
 
-  // ---------- 1. Brand Craft Showcase (Pure BeBosS Brand Design) ----------
-  const renderCraft = () => {
-    const rail = $("#craftRail");
-    if (!rail) return;
-    rail.innerHTML = BRAND_CRAFT.map((item) => `
-      <article class="craft-card" data-craft="${item.id}" tabindex="0" role="button" aria-label="Inspect ${item.title}">
-        <div class="craft-media"><img src="${item.img}" alt="${item.title}" loading="lazy"></div>
-        <div class="craft-body">
-          <small>${item.tag}</small>
-          <strong>${item.title}</strong>
-        </div>
-      </article>
-    `).join("");
+  const popPocket = () => {
+    const dock = $("#pocketDock");
+    if (!dock) return;
+    dock.classList.remove("pop");
+    void dock.offsetWidth;
+    dock.classList.add("pop");
 
-    const openModal = (id) => {
-      const item = BRAND_CRAFT.find((c) => c.id === id);
-      if (!item) return;
-      $("#mImg").src = item.img;
-      $("#mImg").alt = item.title;
-      $("#mTag").textContent = item.tag;
-      $("#mTitle").textContent = item.title;
-      $("#mCap").textContent = item.caption;
-      $("#craftModal").hidden = false;
-      document.body.style.overflow = "hidden";
-    };
-
-    rail.addEventListener("click", (e) => {
-      const card = e.target.closest("[data-craft]");
-      if (card) openModal(card.dataset.craft);
-    });
-    rail.addEventListener("keydown", (e) => {
-      if (e.key !== "Enter" && e.key !== " ") return;
-      const card = e.target.closest("[data-craft]");
-      if (card) { e.preventDefault(); openModal(card.dataset.craft); }
-    });
-
-    const closeModal = () => {
-      $("#craftModal").hidden = true;
-      document.body.style.overflow = "";
-    };
-    $("#mClose").addEventListener("click", closeModal);
-    $("#mCta").addEventListener("click", closeModal);
-    $("#craftModal").addEventListener("click", (e) => { if (e.target.id === "craftModal") closeModal(); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("#craftModal").hidden) closeModal(); });
+    const ticket = $("#liveTicket");
+    if (ticket) {
+      ticket.classList.remove("pulse");
+      void ticket.offsetWidth;
+      ticket.classList.add("pulse");
+    }
   };
 
-  // ---------- 2. Step 01 · Interactive Sales Goal Qualifier ----------
+  // ---------- 1. Step 01 · Interactive Destination Cards ----------
   const renderGoals = () => {
     const grid = $("#goalGrid");
     if (!grid) return;
     grid.innerHTML = Object.values(GOALS).map((g) => `
       <button class="goal-card ${state.goal === g.id ? "on" : ""}" type="button" data-goal="${g.id}" role="tab" aria-selected="${state.goal === g.id}">
-        <div class="goal-top"><small>OPTION ${g.num}</small><i aria-hidden="true">→</i></div>
+        <div class="goal-top"><small>${g.num} · ${g.code}</small><i aria-hidden="true">→</i></div>
         <strong>${g.label}</strong>
         <p>${g.short}</p>
       </button>
     `).join("");
 
     const cur = GOALS[state.goal];
-    $("#recPill").textContent = `MATCH FOR: ${cur.label.toUpperCase()}`;
+    $("#recPill").textContent = `MATCHED · ${cur.label.toUpperCase()}`;
+    $("#recLabel").textContent = cur.recLabel;
     $("#recText").textContent = cur.recText;
   };
 
-  // ---------- 3. Step 02 · Clear 3-Tier Plans ----------
+  // ---------- 2. Step 02 · Pocket-Ready Packages ----------
   const renderPlans = () => {
     const grid = $("#plansGrid");
     if (!grid) return;
@@ -116,14 +86,14 @@
             ${p.bullets.map((b) => `<li>${b}</li>`).join("")}
           </ul>
           <button class="${btnCls}" type="button" data-pick-plan="${p.id}" style="width:100%">
-            ${isSelected ? `Selected · Claim ${p.name} →` : `Select ${p.name} & Board →`}
+            ${isSelected ? `✓ In Your Pocket · Claim Pass →` : `Put ${p.name} in My Pocket →`}
           </button>
         </article>
       `;
     }).join("");
   };
 
-  // ---------- 4. Step 03 · Live Boarding Pass & Plan Pills ----------
+  // ---------- 3. Step 03 · Live Boarding Pass + Pocket Dock Sync ----------
   const renderPlanPills = () => {
     const wrap = $("#planPills");
     if (!wrap) return;
@@ -143,6 +113,7 @@
     $("#tName").textContent = (brand || "YOUR BRAND").toUpperCase();
     const unitShort = plan.unit.includes("month") ? "/MO" : "";
     $("#tPlan").textContent = `${plan.name.toUpperCase()} · ${plan.priceLabel.toUpperCase()}${unitShort}`;
+    $("#pocketTitle").textContent = `${plan.name} · ${plan.shortPrice}`;
 
     const ready = Boolean(brand || name || phone);
     $("#tStep3")?.classList.toggle("ok", ready);
@@ -158,16 +129,16 @@
     return [
       "Hi BeBosS — I'm claiming my Boarding Pass:",
       `• Brand: ${brand}`,
-      `• Goal: ${goal.label}`,
-      `• Selected Plan: ${plan.name} (${plan.priceLabel} ${plan.unit})`,
+      `• Destination: ${goal.label}`,
+      `• Package in My Pocket: ${plan.name} (${plan.priceLabel} ${plan.unit})`,
       `• Name: ${name}`,
       `• WhatsApp: ${phone}`,
       "",
-      "Ready to schedule our quick kickoff call!"
+      "Ready for our quick kickoff call!"
     ].join("\n");
   };
 
-  // ---------- 5. Live 3-Step CAIRO ✈ GCC Flight Bar ----------
+  // ---------- 4. Live 3-Step Flight Route Bar & Scroll Reveals ----------
   const updateFlightBar = (step) => {
     state.currentStep = step;
     const pct = step === 1 ? 0 : step === 2 ? 50 : 100;
@@ -185,18 +156,16 @@
     });
   };
 
-  const initScrollTracking = () => {
+  const initObservers = () => {
     const sections = $$("[data-step-sec]");
-    if (!sections.length) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          updateFlightBar(Number(entry.target.dataset.stepSec));
-        }
-      });
-    }, { rootMargin: "-35% 0px -45% 0px", threshold: 0.05 });
-
-    sections.forEach((sec) => io.observe(sec));
+    if (sections.length) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) updateFlightBar(Number(entry.target.dataset.stepSec));
+        });
+      }, { rootMargin: "-35% 0px -45% 0px", threshold: 0.05 });
+      sections.forEach((sec) => io.observe(sec));
+    }
 
     $$(".flight-gate").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -205,11 +174,25 @@
         updateFlightBar(Number(btn.dataset.step));
       });
     });
+
+    // Subtle luxury scroll-reveal
+    const reveals = $$(".reveal");
+    if (reveals.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      reveals.forEach((el) => el.classList.add("pre"));
+      const rio = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.remove("pre");
+            rio.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      reveals.forEach((el) => rio.observe(el));
+    }
   };
 
   // ---------- Wire Interactions ----------
   const bindEvents = () => {
-    // Step 01 goal click -> updates recommendation + switches plan tab & selected plan
     $("#goalGrid").addEventListener("click", (e) => {
       const btn = e.target.closest("[data-goal]");
       if (!btn) return;
@@ -228,10 +211,10 @@
       renderPlans();
       renderPlanPills();
       syncBoardingPass();
-      showToast(`Matched to ${getPlan().name} Plan`);
+      popPocket();
+      showToast(`${getPlan().name} matched & ready in your pocket`);
     });
 
-    // Step 02 Monthly / One-Time tab switch
     $("#planTabs").addEventListener("click", (e) => {
       const tab = e.target.closest("[data-ptab]");
       if (!tab) return;
@@ -244,7 +227,6 @@
       renderPlans();
     });
 
-    // Step 02 Select Plan -> updates Boarding Pass & scrolls straight to Step 03
     $("#plansGrid").addEventListener("click", (e) => {
       const btn = e.target.closest("[data-pick-plan]");
       if (!btn) return;
@@ -252,11 +234,11 @@
       renderPlans();
       renderPlanPills();
       syncBoardingPass();
-      showToast(`${getPlan().name} loaded onto your Boarding Pass`);
+      popPocket();
+      showToast(`${getPlan().name} is now in your pocket`);
       $("#step-3").scrollIntoView({ behavior: "smooth" });
     });
 
-    // Step 03 Quick plan pills
     $("#planPills").addEventListener("click", (e) => {
       const pill = e.target.closest("[data-pill-plan]");
       if (!pill) return;
@@ -264,21 +246,19 @@
       renderPlans();
       renderPlanPills();
       syncBoardingPass();
+      popPocket();
     });
 
-    // Step 03 Live Boarding Pass typing
     ["#inBrand", "#inName", "#inPhone"].forEach((sel) => {
       $(sel)?.addEventListener("input", syncBoardingPass);
     });
 
-    // Direct WhatsApp Close
     $("#btnSendWA").addEventListener("click", () => {
       const url = `https://wa.me/201003000607?text=${encodeURIComponent(buildBriefMessage())}`;
       window.open(url, "_blank", "noopener");
       showToast("Opening WhatsApp with your Boarding Pass…");
     });
 
-    // Direct Email Close
     $("#btnSendMail").addEventListener("click", () => {
       const plan = getPlan();
       const brand = ($("#inBrand")?.value || "").trim() || "New Brand";
@@ -288,12 +268,11 @@
   };
 
   // Boot
-  renderCraft();
   renderGoals();
   renderPlans();
   renderPlanPills();
   syncBoardingPass();
   updateFlightBar(1);
-  initScrollTracking();
+  initObservers();
   bindEvents();
 })();
