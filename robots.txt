@@ -1,0 +1,32 @@
+# BeBosS — Search Engine & AI Search Crawler Policy
+# Explicitly welcomes Google, Bing, and AI Search Assistants (ChatGPT, Perplexity, Claude, Gemini)
+
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://beboss-studio.github.io/BeBosS/sitemap.xml
+# AI Search Index: https://beboss-studio.github.io/BeBosS/llms.txt
